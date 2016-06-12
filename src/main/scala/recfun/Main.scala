@@ -32,8 +32,17 @@ object Main {
   /**
     * Exercise 2
     */
-  def balance(chars: List[Char]): Boolean = ???
-
+  def balance(chars: List[Char]): Boolean = {
+    def evaluate(chars: List[Char], opened: Int): Boolean = {
+      if (chars.isEmpty) opened == 0  // terminate after processing List
+      else
+        if (chars.head.equals('(')) evaluate(chars.tail, opened+1) // check for '('
+          else
+            if (chars.head.equals(')')) opened > 0 && evaluate(chars.tail, opened-1)  // check for ')' and ensure balancing
+              else evaluate(chars.tail, opened) // move on
+    }
+    evaluate(chars.filter(c=>c.equals(')') || c.equals('(')),0)
+  }
   /**
     * Exercise 3
     */
