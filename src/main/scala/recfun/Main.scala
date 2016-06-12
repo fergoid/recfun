@@ -12,8 +12,8 @@ object Main {
     }
   }
 
-  def fact(n: Int): Int = {
-    def loop(acc: Int, n: Int): Int = {
+  def fact(n: BigInt): BigInt = {
+    def loop(acc: BigInt, n: BigInt): BigInt = {
       if (n == 0) acc else loop(acc * n, n - 1)
     }
     loop(1, n)
@@ -22,7 +22,7 @@ object Main {
   /**
     * Exercise 1
     */
-  def pascal(c: Int, r: Int): Int = {
+  def pascal(c: BigInt, r: BigInt): BigInt = {
     if (c > r) throw new IllegalArgumentException("No of columns cannot be greater than row number")
     if (c < 0 || r < 0) throw new IllegalArgumentException("Column and Row must be positive numbers")
 
@@ -56,7 +56,7 @@ object Main {
         evaluate(m, c.tail) + evaluate(m - c.max, c)
 
     }
-    evaluate(money, coins.sortWith(_>_))  // coins sorted in descendding order
+    evaluate(money, coins.sortWith(_>_))  // coins sorted in descending order
   }
 
 }
