@@ -56,8 +56,7 @@ object Main {
         evaluate(m, c.tail) + evaluate(m - c.max, c)
 
     }
-    evaluate(money, coins.sortWith(_>_))
+    evaluate(money, coins.sortWith(_>_))  // coins sorted in descendding order
   }
-
 
 }
