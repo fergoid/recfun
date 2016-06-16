@@ -11,8 +11,8 @@ object Main {
       println()
     }
   }
-
   def fact(n: BigInt): BigInt = {
+    @tailrec
     def loop(acc: BigInt, n: BigInt): BigInt = {
       if (n == 0) acc else loop(acc * n, n - 1)
     }
